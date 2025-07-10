@@ -146,7 +146,7 @@ body {
 .founder-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #1f2937;
+  color: #0b1f3a;
   margin-bottom: 16px;
 }
 
@@ -189,34 +189,27 @@ body {
   margin-bottom: 24px;
 }
 
-.registration-options-empresas {
+.registration-options {
   display: flex;
-  color: #1f3b73;
   text-align: left;
-  gap: 24px;
-}
-
-.registration-options-persona {
-  display: flex;
-  color: #1f3b73;
-  text-align: right;
+  padding-left: 2rem;
   gap: 24px;
 }
 
 .registration-option h3 {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #0b1f3a;
   margin-bottom: 8px;
 }
 
 .registration-option p {
-  color: #6b7280;
+  color: #1f3b73;
 }
 
 .access-btn {
-  background-color: #fbbf24;
-  color: #000000;
+  background-color: #a67c00;
+  color: white;
   padding: 12px 24px;
   border: none;
   border-radius: 6px;

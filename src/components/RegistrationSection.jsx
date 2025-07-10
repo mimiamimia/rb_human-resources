@@ -10,24 +10,24 @@ const RegistrationSection = () => {
                 <h2>Como se cadastrar</h2>
                 
                 <div className="registration-options">
-                <div className="registration-option-empresas">
+                <div className="registration-option">
                     <h3>Empresa</h3>
                     <p>
                     Cadastre sua empresa para publicar vagas e encontrar os melhores profissionais classificados para a sua vaga!
                     </p>
                 </div>
                 
-                <div className="registration-option-personas">
+                <div className="registration-option">
                     <h3>Profissional</h3>
                     <p>
                     Crie seu perfil como profissional e encontre as melhores oportunidades de carreira.
                     </p>
                 </div>
-                
+                </div>
+
                 <button className="access-btn">
                     Cadastre-se
                 </button>
-                </div>
             </div>
             
             <div>
