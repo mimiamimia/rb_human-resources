@@ -5,13 +5,15 @@ import FounderSection from './components/FounderSection'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import RegistrationSection from './components/RegistrationSection'
+import StatItem from './components/StatItem'
+import StatsSection from './components/StatsSection'
+import Footer from './components/Footer'
 
 
 function App() {
   
-
   return (
-    <div>
+    <div className="min-h-screen bg-white">
     <Header />
 
     <HeroSection />
@@ -24,6 +26,11 @@ function App() {
 
     <DescriptionSection />
     
+    <StatItem />
+
+    <StatsSection />
+
+    <Footer />
     </div>
   )
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import '../index.css';
+import minhaImagem from '../assets/logo_ofc-preview.png'
 
 const Header = () => {
     return (
         <header className="header">
         <nav className="navbar">
             <div className="navbar-brand">
-            <div className="logo">RB</div>
+            <img className= "logo" src={minhaImagem}/>
             <ul className="nav-links">
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Sobre nós</a></li>
