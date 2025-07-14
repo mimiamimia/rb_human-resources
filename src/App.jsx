@@ -1,6 +1,5 @@
 import './App.css'
 import DescriptionCard from './components/DescriptionCard'
-import DescriptionSection from './components/DescriptionSection'
 import FounderSection from './components/FounderSection'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
@@ -11,6 +10,7 @@ import Footer from './components/Footer'
 
 
 function App() {
+  
   
   return (
     <div className="min-h-screen bg-white">
@@ -23,8 +23,6 @@ function App() {
     <RegistrationSection />
 
     <DescriptionCard />
-
-    <DescriptionSection />
     
     <StatItem />
 

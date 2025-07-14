@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="footer-section">
                 <h3>RB Recursos Humanos</h3>
                 <p className="footer-description">
-                Conectando talentos e empresas para um futuro melhor.
+                Conectando talentos e empresas para garantir serviços de qualidade e humanizado.
                 </p>
             </div>
             
@@ -29,7 +29,7 @@ const Footer = () => {
                 <div className="contact-info">
                 <div className="contact-item">
                     <Phone className="contact-icon" />
-                    <span>(11) 99999-9999</span>
+                    <span>(12) 99999-9999</span>
                 </div>
                 <div className="contact-item">
                     <Mail className="contact-icon" />
@@ -37,7 +37,7 @@ const Footer = () => {
                 </div>
                 <div className="contact-item">
                     <MapPin className="contact-icon" />
-                    <span>São Paulo, SP</span>
+                    <span>Taubaté, SP</span>
                 </div>
                 </div>
             </div>
