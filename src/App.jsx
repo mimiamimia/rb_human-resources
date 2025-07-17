@@ -4,8 +4,6 @@ import FounderSection from './components/FounderSection'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import RegistrationSection from './components/RegistrationSection'
-import StatItem from './components/StatItem'
-import StatsSection from './components/StatsSection'
 import Footer from './components/Footer'
 
 
@@ -23,10 +21,6 @@ function App() {
     <RegistrationSection />
 
     <DescriptionCard />
-    
-    <StatItem />
-
-    <StatsSection />
 
     <Footer />
     </div>

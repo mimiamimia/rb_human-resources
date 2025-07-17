@@ -1,23 +1,34 @@
 import React from 'react';
-import '../index.css';
 import minhaImagem from '../assets/logo_ofc-preview.png'
 
 const Header = () => {
     return (
-        <header className="header">
-        <nav className="navbar">
-            <div className="navbar-brand">
-            <img className= "logo" src={minhaImagem}/>
-            <ul className="nav-links">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre nós</a></li>
-                <li><a href="#">Vagas</a></li>
-            </ul>
-            </div>
-            <button className="contact-btn">
-            Contato
-            </button>
-        </nav>
+        <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                <div className="flex items-center gap-16">
+                    <img className="h-15 w-15 mr-8" src={minhaImagem} alt="Logo" />
+                    <ul className="hidden md:flex space-x-8 gap-16">
+                        <li>
+                            <a href="#" className="text-gray-700 hover:text-gray-900 font-medium">
+                                Início
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="text-gray-700 hover:text-gray-900 font-medium">
+                                Sobre nós
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="text-gray-700 hover:text-gray-900 font-medium">
+                                Vagas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button className="bg-yellow-600 text-white px-6 py-2 rounded-md hover:bg-yellow-700 font-medium">
+                    Contato
+                </button>
+            </nav>
         </header>
     );
 };

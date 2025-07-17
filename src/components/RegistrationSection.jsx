@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../index.css';
 
 const RegistrationSection = () => {
     const [showModal, setShowModal] = useState(false);
@@ -21,7 +20,7 @@ const RegistrationSection = () => {
         const initializeGoogleSignIn = () => {
             if (window.google) {
                 window.google.accounts.id.initialize({
-                    client_id: "SEU_GOOGLE_CLIENT_ID_AQUI", // Substitua pelo seu Client ID
+                    client_id: "216750858420-elok0gmesvjb1uc50am8ee9og6nmsgpn.apps.googleusercontent.com", // Substitua pelo seu Client ID
                     callback: handleGoogleSignIn,
                     auto_select: false,
                 });
@@ -154,7 +153,7 @@ const RegistrationSection = () => {
         return (
             <button
                 type="button"
-                className="google-btn"
+                className="w-auto flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
                 onClick={() => {
                     if (window.google) {
                         window.google.accounts.id.prompt();
@@ -174,38 +173,41 @@ const RegistrationSection = () => {
     };
 
     return (
-        <section className="registration-section">
-            <div className="container">
-                <div className="registration-grid">
-                    <div className="registration-content">
-                        <h2>Como se cadastrar</h2>
+        <section className="py-16 text-left bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-8">
+                        <h2 className="text-3xl font-bold text-indigo-950">Como se cadastrar</h2>
                         
-                        <div className="registration-options">
-                            <div className="registration-option">
-                                <h3>Empresa</h3>
-                                <p>
+                        <div className="space-y-6">
+                            <div className="bg-white p-6 ">
+                                <h3 className="text-xl font-semibold text-indigo-950 mb-2">Empresa</h3>
+                                <p className="text-gray-600">
                                     Cadastre sua empresa para publicar vagas e encontrar os melhores profissionais classificados para a sua vaga!
                                 </p>
                             </div>
                             
-                            <div className="registration-option">
-                                <h3>Profissional</h3>
-                                <p>
+                            <div className="bg-white p-6">
+                                <h3 className="text-xl font-semibold text-indigo-950 mb-2">Profissional</h3>
+                                <p className="text-gray-600">
                                     Crie seu perfil como profissional e encontre as melhores oportunidades de carreira.
                                 </p>
                             </div>
                         </div>
 
                         {user ? (
-                            <div className="user-info">
-                                <p>Bem-vindo, {user.name}!</p>
-                                <button className="logout-btn" onClick={handleLogout}>
+                            <div className="bg-gray-50 p-6 rounded-lg">
+                                <p className="text-gray-900 font-medium mb-4">Bem-vindo, {user.name}!</p>
+                                <button 
+                                    className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors duration-200"
+                                    onClick={handleLogout}
+                                >
                                     Sair
                                 </button>
                             </div>
                         ) : (
                             <button 
-                                className="access-btn" 
+                                className="bg-yellow-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-yellow-700 transition-colors duration-200"
                                 onClick={() => setShowModal(true)}
                             >
                                 Cadastre-se
@@ -213,11 +215,11 @@ const RegistrationSection = () => {
                         )}
                     </div>
                     
-                    <div>
+                    <div className="flex justify-center">
                         <img 
                             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
                             alt="Profissionais trabalhando"
-                            className="registration-image"
+                            className="rounded-lg shadow-xl max-w-full h-auto"
                         />
                     </div>
                 </div>
@@ -225,119 +227,147 @@ const RegistrationSection = () => {
 
             {/* Modal de Autenticação */}
             {showModal && (
-                <div className="modal-overlay" onClick={() => setShowModal(false)}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button 
-                            className="modal-close"
-                            onClick={() => setShowModal(false)}
-                        >
-                            ×
-                        </button>
-
-                        <div className="auth-header">
-                            <h2>{currentForm === 'register' ? 'Cadastro' : 'Login'}</h2>
-                            <div className="auth-toggle">
-                                <button 
-                                    className={currentForm === 'register' ? 'active' : ''}
-                                    onClick={() => setCurrentForm('register')}
-                                >
-                                    Cadastro
-                                </button>
-                                <button 
-                                    className={currentForm === 'login' ? 'active' : ''}
-                                    onClick={() => setCurrentForm('login')}
-                                >
-                                    Login
-                                </button>
-                            </div>
-                        </div>
-
-                        <form onSubmit={handleSubmit} className="auth-form">
-                            {currentForm === 'register' && (
-                                <div className="user-type-selection">
-                                    <label>
-                                        <input
-                                            type="radio"
-                                            name="userType"
-                                            value="profissional"
-                                            checked={userType === 'profissional'}
-                                            onChange={(e) => setUserType(e.target.value)}
-                                        />
-                                        Profissional
-                                    </label>
-                                    <label>
-                                        <input
-                                            type="radio"
-                                            name="userType"
-                                            value="empresa"
-                                            checked={userType === 'empresa'}
-                                            onChange={(e) => setUserType(e.target.value)}
-                                        />
-                                        Empresa
-                                    </label>
-                                </div>
-                            )}
-
-                            {currentForm === 'register' && (
-                                <>
-                                    <input
-                                        type="text"
-                                        name={userType === 'empresa' ? 'companyName' : 'name'}
-                                        placeholder={userType === 'empresa' ? 'Nome da Empresa' : 'Nome Completo'}
-                                        value={userType === 'empresa' ? formData.companyName : formData.name}
-                                        onChange={handleInputChange}
-                                        required
-                                    />
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        placeholder="Telefone"
-                                        value={formData.phone}
-                                        onChange={handleInputChange}
-                                        required
-                                    />
-                                </>
-                            )}
-
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="E-mail"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                required
-                            />
-
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Senha"
-                                value={formData.password}
-                                onChange={handleInputChange}
-                                required
-                            />
-
-                            {currentForm === 'register' && (
-                                <input
-                                    type="password"
-                                    name="confirmPassword"
-                                    placeholder="Confirmar Senha"
-                                    value={formData.confirmPassword}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            )}
-
-                            <button type="submit" className="submit-btn" disabled={loading}>
-                                {loading ? 'Carregando...' : (currentForm === 'register' ? 'Cadastrar' : 'Entrar')}
+                <div className="fixed inset-0 backdrop-blur-2xl flex items-center justify-center z-50">
+                    <div className="bg-white rounded-lg shadow-xl max-w-lg w-full  overflow-y-auto">
+                        <div className="p-6">
+                            <button 
+                                className="relative text-gray-400 hover:text-gray-600 text-2xl"
+                                onClick={() => setShowModal(false)}
+                            >
+                                ×
                             </button>
 
-                            <div className="divider">
-                                <span>ou</span>
+                            <div className="mb-6">
+                                <h2 className="text-2xl font-bold text-center text-indigo-950 pb-4">
+                                    {currentForm === 'register' ? 'Cadastro' : 'Login'}
+                                </h2>
+                                <div className="flex bg-gray-100 rounded-lg p-1">
+                                    <button 
+                                        className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors duration-500 ${
+                                            currentForm === 'register' 
+                                                ? 'bg-white text-indigo-900 shadow-sm' 
+                                                : 'text-gray-500 hover:text-gray-700'
+                                        }`}
+                                        onClick={() => setCurrentForm('register')}
+                                    >
+                                        Cadastro
+                                    </button>
+                                    <button 
+                                        className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors duration-500 ${
+                                            currentForm === 'login' 
+                                                ? 'bg-white text-indigo-900 shadow-sm' 
+                                                : 'text-gray-500 hover:text-gray-700'
+                                        }`}
+                                        onClick={() => setCurrentForm('login')}
+                                    >
+                                        Login
+                                    </button>
+                                </div>
                             </div>
 
-                            {renderGoogleButton()}
-                        </form>
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                {currentForm === 'register' && (
+                                    <div className="py-4 flex">
+                                        <label className="flex space-x-2">
+                                            <input
+                                                type="radio"
+                                                name="userType"
+                                                value="profissional"
+                                                checked={userType === 'profissional'}
+                                                onChange={(e) => setUserType(e.target.value)}
+                                                className="text-indigo-900 focus:ring-indigo-900"
+                                            />
+                                            <span className="text-sm text-gray-700">Profissional</span>
+                                        </label>
+                                        <label className="flex  space-x-2">
+                                            <input
+                                                type="radio"
+                                                name="userType"
+                                                value="empresa"
+                                                checked={userType === 'empresa'}
+                                                onChange={(e) => setUserType(e.target.value)}
+                                                className="text-indigo-900 focus:ring-indigo-900"
+                                            />
+                                            <span className="text-sm text-gray-700">Empresa</span>
+                                        </label>
+                                    </div>
+                                )}
+
+                                {currentForm === 'register' && (
+                                    <>
+                                        <input
+                                            type="text"
+                                            name={userType === 'empresa' ? 'companyName' : 'name'}
+                                            placeholder={userType === 'empresa' ? 'Nome da Empresa' : 'Nome Completo'}
+                                            value={userType === 'empresa' ? formData.companyName : formData.name}
+                                            onChange={handleInputChange}
+                                            className="w-full px-3 py-2  border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-900 focus:border-transparent"
+                                            required
+                                        />
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            placeholder="Telefone"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-900 focus:border-transparent"
+                                            required
+                                        />
+                                    </>
+                                )}
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="E-mail"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-900 focus:border-transparent"
+                                    required
+                                />
+
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Senha"
+                                    value={formData.password}
+                                    onChange={handleInputChange}
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-900 focus:border-transparent"
+                                    required
+                                />
+
+                                {currentForm === 'register' && (
+                                    <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        placeholder="Confirmar Senha"
+                                        value={formData.confirmPassword}
+                                        onChange={handleInputChange}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-900 focus:border-transparent"
+                                        required
+                                    />
+                                )}
+
+                                <button 
+                                    type="submit" 
+                                    className="w-full bg-yellow-600 text-white py-2 rounded-md font-medium hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-bg-yellow-700 focus:ring-offset-2 transition-colors duration-200 disabled:opacity-50"
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Carregando...' : (currentForm === 'register' ? 'Cadastrar' : 'Entrar')}
+                                </button>
+
+                                <div className="relative">
+                                    <div className="absolute inset-0 flex items-center">
+                                        <div className="w-full border-t border-gray-300" />
+                                    </div>
+                                    <div className="relative flex justify-center text-sm">
+                                        <span className="px-2 bg-white text-gray-500">ou</span>
+                                    </div>
+                                </div>
+
+                                {renderGoogleButton()}
+                            </form>
+                        </div>
                     </div>
                 </div>
             )}
